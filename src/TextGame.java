@@ -1,4 +1,9 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
+import java.util.List;
 
 public class TextGame {
     private static final String[] cars = {"Lamber-genie", "Ter-berda", "Slice-ler", "Terd"};
@@ -30,6 +35,48 @@ public class TextGame {
     public void start() {
         Scanner scanner = new Scanner(System.in);
 
+        JFrame frame = new JFrame("Hello, my name is Car Man");
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout());
+
+        JTextArea results = new JTextArea();
+
+        JPanel carNamePanel = new JPanel();
+        carNamePanel.setLayout(new FlowLayout());
+        JLabel carNameLabel = new JLabel("Car Name");
+        JTextField carNameInput = new JTextField(10);
+        carNamePanel.add(carNameLabel);
+        carNamePanel.add(carNameInput);
+
+        JPanel carColorPanel = new JPanel();
+        carColorPanel.setLayout(new FlowLayout());
+        JLabel carColor = new JLabel("Car Color");
+        JTextField carColorInput = new JTextField(10);
+        carColorPanel.add(carColor);
+        carColorPanel.add(carColorInput);
+
+        JPanel buttonPanel =  new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
+        JButton okButton = new JButton("Shoop");
+        okButton.addActionListener(actionEvent -> {
+            results.append("Boom Poop Shoop Da woop\n");
+        });
+        JButton noButton = new JButton("Delete");
+        noButton.addActionListener(actionEvent -> {
+            results.setText("");
+        });
+        buttonPanel.add(okButton);
+        buttonPanel.add(noButton);
+
+        buttonPanel.add(results);
+
+        panel.add(carNamePanel);
+        panel.add(carColorPanel);
+        panel.add(buttonPanel);
+        frame.add(panel);
+        frame.setSize(1200,720);
+        frame.setVisible(true);
+
         while (true) {
             displayMainMenu();
             int choice = scanner.nextInt();
@@ -47,6 +94,8 @@ public class TextGame {
                 default -> System.out.println("Invalid choice. Please try again.");
             }
         }
+
+
     }
 
     private void displayMainMenu() {
