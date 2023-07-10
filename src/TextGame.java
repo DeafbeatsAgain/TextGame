@@ -1,4 +1,9 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
+import java.util.List;
 
 public class TextGame {
     private static final String[] cars = {"Lamber-genie", "Ter-berda", "Slice-ler", "Terd"};
@@ -14,9 +19,10 @@ public class TextGame {
     private List<Race> raceSchedule;
 
     public static void main(String[] args) {
-        TextGame championship = new TextGame();
-        championship.initializeRaceSchedule();
-        championship.start();
+        TextGameUI championship = new TextGameUI();
+//        TextGame championship = new TextGame();
+//        championship.initializeRaceSchedule();
+//        championship.start();
     }
 
     public void initializeRaceSchedule() {
@@ -47,6 +53,8 @@ public class TextGame {
                 default -> System.out.println("Invalid choice. Please try again.");
             }
         }
+
+
     }
 
     private void displayMainMenu() {
@@ -168,26 +176,3 @@ public class TextGame {
     }
 }
 
-class Race {
-    private String name;
-    private String track;
-    private int laps;
-
-    public Race(String name, String track, int laps) {
-        this.name = name;
-        this.track = track;
-        this.laps = laps;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getTrack() {
-        return track;
-    }
-
-    public int getLaps() {
-        return laps;
-    }
-}
