@@ -18,9 +18,15 @@ public class Main
             new RaceCar("Slice-ler", 7, 7, 7), //Slice-ler stats
             new RaceCar("Terd", 8, 8, 6)  //Terd stats
     };
+    private RaceCar[] starCars = {
+            new RaceCar("The Pink One", 5, 5, 5),
+            new RaceCar("Reginald P. Reginald", 5, 5, 5),
+            new RaceCar("Venn \"Long-Hands\" McKenzie", 5, 5,5)
+    };
+
     //begin AI Name maker
-    private String[] aiFirstNames = {"Cal", "Rip", "Thomas", "Jerf", "Guy", "Venn"};
-    private String[] aiLastNames = {"Daytona", "Biggins", "Havvereff", "Goblin-Hands", "Diagram", " \"Long-Hands\" McKenzie"};
+    private String[] aiFirstNames = {"Big-Al", "Cal", "Rip", "Thomas", "Jerf", "Guy", "Eduardo", "Steven", "Keith", "Candle-Jack"};
+    private String[] aiLastNames = {"Leyva", "Daytona", "Davidson", "Geraldo", "Biggins", "Havvereff", "Goblin-Hands", "Diagram", "\"Shoulder-check\" Johnson"};
     public String getRandomName()
     {
         Random rand = new Random();
@@ -28,12 +34,17 @@ public class Main
         String lastName = aiLastNames[rand.nextInt(aiLastNames.length)];
         return firstName + " " + lastName;
     }
+
     Random random = new Random();
     private List<RaceTrack> raceSchedule;
     private static final int MAX_AI_PLAYERS = 8; // Maximum number of AI players
     private int aiPlayerCount; // Number of AI players
     // End Declaring Variables here
 
+    //Start Custom Drivers
+
+
+    //End Custom Drivers
     public void start() {
         Scanner scanner = new Scanner(System.in);
 
@@ -64,8 +75,8 @@ public class Main
     public void initializeRaceSchedule()
     {
         raceSchedule = new ArrayList<>();
-        raceSchedule.add(new RaceTrack("Shithouse 400", 160, 0.7, 0.5));
-        raceSchedule.add(new RaceTrack("Track 2", 3, 0.5, 0.3));
+        raceSchedule.add(new RaceTrack("Shithouse 400", 160, 0.4, 0.5));
+        raceSchedule.add(new RaceTrack("Faketona 500", 250, 0.6, 0.4));
 
     }
 

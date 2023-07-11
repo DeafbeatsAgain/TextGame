@@ -30,6 +30,7 @@ public class RaceCar {
     }
 
     // Setter methods
+    public void setCarName(String carName) {this.carName = carName; }
     public void setTopSpeed(int topSpeed) {
         this.topSpeed = topSpeed;
     }
